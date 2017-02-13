@@ -13,7 +13,6 @@
   <script type="text/javascript" src="//platform.linkedin.com/in.js">
     api_key: 78uig8j4a1ia9b
     authorize: false
-    // onLoad:    OnLinkedInFrameworkLoad
     lang: en_US
   </script>
 
@@ -34,7 +33,9 @@
         $('#headline').val(member.headline);
         $('#picture').attr("src", member.pictureUrl);
 
-        $('#out').html(member.firstName + " " + member.lastName + ". Thank you!");
+        out = member.firstName + " " + member.lastName + ", Thank you for taking the time to complete an application for employment." 
+out += "<br>A member of our talent acquisition team will contact you directly if you are selected to proceed in the interview process."
+        $('#out').html(out);
         $('#info').toggleClass('invisible')
 
 
@@ -48,7 +49,7 @@
 
 </head>
 
-<body ng-app='mainapp' ng-controller='firstcontroll'>
+<body>
 
   <br>
 
