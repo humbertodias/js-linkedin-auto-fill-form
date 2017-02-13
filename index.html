@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="icon" href="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <script type="text/javascript" src="//platform.linkedin.com/in.js">
+  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
     api_key: 78uig8j4a1ia9b
     authorize: false
     lang: en_US
@@ -20,23 +21,21 @@
   <script>
     var callbackScope, extraData;
     function callback(args) {
-      // console.log('callback', args, callbackScope, extraData);
-      var fields = ['first-name', 'last-name', 'email-address', 'id', 'headline', 'pictureUrl'];
-      IN.API.Profile("me").fields(fields).result(function (profiles) {
-        console.log('me', profiles);
+		var fields = ['first-name', 'last-name', 'email-address', 'id', 'headline', 'pictureUrl'];
+		IN.API.Profile("me").fields(fields).result(function (profiles) {
 
-        member = profiles.values[0];
+		member = profiles.values[0];
 
-        $('#firstName').val(member.firstName);
-        $('#lastName').val(member.lastName);
-        $('#email').val(member.emailAddress);
-        $('#headline').val(member.headline);
-        $('#picture').attr("src", member.pictureUrl);
+		$('#firstName').val(member.firstName);
+		$('#lastName').val(member.lastName);
+		$('#email').val(member.emailAddress);
+		$('#headline').val(member.headline);
+		$('#picture').attr("src", member.pictureUrl);
 
-        out = member.firstName + " " + member.lastName + ", Thank you for taking the time to complete an application for employment." 
-out += "<br>A member of our talent acquisition team will contact you directly if you are selected to proceed in the interview process."
-        $('#out').html(out);
-        $('#info').toggleClass('invisible')
+		out = member.firstName + " " + member.lastName + ", Thank you for taking the time to complete an application for employment." 
+		out += "<br>A member of our talent acquisition team will contact you directly if you are selected to proceed in the interview process."
+		$('#out').html(out);
+		$('#info').toggleClass('invisible')
 
 
       }).error(function (data) {
@@ -76,38 +75,33 @@ out += "<br>A member of our talent acquisition team will contact you directly if
           </div>
         </div>
 
-        <p ng-bind="firstname"></p>
-
         <!-- Text input-->
         <div class="form-group">
           <div class="col-md-12">
-            <input id="firstName" ng-model='firstName' type="text" placeholder="First Name" class="form-control input-md" required="">
+            <input id="firstName" type="text" placeholder="First Name" class="form-control input-md" required="">
           </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
           <div class="col-md-12">
-            <input id="lastName" ng-model='lastName' type="text" placeholder="Last Name" class="form-control input-md" required="">
-
+            <input id="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="">
           </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
           <div class="col-md-12">
-            <input id="email" ng-model='email' type="text" placeholder="Email" class="form-control input-md" required="">
-
+            <input id="email" type="text" placeholder="Email" class="form-control input-md" required="">
           </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
           <div class="col-md-12">
-            <input id="headline" ng-model='headline' type="text" placeholder="HeadLine" class="form-control input-md" required="">
+            <input id="headline" type="text" placeholder="HeadLine" class="form-control input-md" required="">
           </div>
         </div>
-
 
       </fieldset>
       <input type='submit' class='btn btn-primary btn-block' value="Apply">
