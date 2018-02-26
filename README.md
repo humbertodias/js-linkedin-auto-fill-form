@@ -5,7 +5,7 @@ Using LinkedIn JavaScript API for User Authentication and Profile Retrieval.
 
 ## Prerequires
 
-1. http-server
+1. [NodeJS 9+](https://nodejs.org/en/download/)
 
 
 ## Run
@@ -39,6 +39,7 @@ Unfilled, click on sign in with LinkedIn
 
 ![](doc/unfilled.png)
 
+
 Authentication
 
 ![](doc/auth.png)
@@ -49,9 +50,8 @@ Filled
 ![](doc/filled.png)
 
 
-Demo
+[Demo](doc/demo.webm)
 
-![](doc/demo.webm)
 
 ## References
 
