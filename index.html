@@ -2,111 +2,112 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <link rel="icon" href="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="icon" href="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script type="text/javascript" src="//platform.linkedin.com/in.js">
-    api_key: 78uig8j4a1ia9b
-    authorize: false
-    lang: en_US
-  </script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <script>
-    var callbackScope, extraData;
-    function callback(args) {
-		var fields = ['first-name', 'last-name', 'email-address', 'id', 'headline', 'pictureUrl'];
-		IN.API.Profile("me").fields(fields).result(function (profiles) {
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key: 78 uig8j4a1ia9b
+        authorize: false
+        lang: en_US
+    </script>
 
-		member = profiles.values[0];
+    <script>
+        var callbackScope, extraData;
 
-		$('#firstName').val(member.firstName);
-		$('#lastName').val(member.lastName);
-		$('#email').val(member.emailAddress);
-		$('#headline').val(member.headline);
-		$('#picture').attr("src", member.pictureUrl);
+        function callback(args) {
+            var fields = ['first-name', 'last-name', 'email-address', 'id', 'headline', 'pictureUrl'];
+            IN.API.Profile("me").fields(fields).result(function(profiles) {
 
-		out = member.firstName + " " + member.lastName + ", Thank you for taking the time to complete an application for employment." 
-		out += "<br>A member of our talent acquisition team will contact you directly if you are selected to proceed in the interview process."
-		$('#out').html(out);
-		$('#info').toggleClass('invisible')
+                member = profiles.values[0];
 
+                $('#firstName').val(member.firstName);
+                $('#lastName').val(member.lastName);
+                $('#email').val(member.emailAddress);
+                $('#headline').val(member.headline);
+                $('#picture').attr("src", member.pictureUrl);
 
-      }).error(function (data) {
-        console.log(data);
-      });
+                out = member.firstName + " " + member.lastName + ", Thank you for taking the time to complete an application for employment."
+                out += "<br>A member of our talent acquisition team will contact you directly if you are selected to proceed in the interview process."
+                $('#out').html(out);
+                $('#info').toggleClass('invisible')
 
-    }
-    IN.Event.on(IN, 'auth', callback, callbackScope, extraData);
-  </script>
+            }).error(function(data) {
+                console.log(data);
+            });
+
+        }
+        IN.Event.on(IN, 'auth', callback, callbackScope, extraData);
+    </script>
 
 </head>
 
 <body>
 
-  <br>
+    <br>
 
-  <div class="container">
+    <div class="container">
 
-    <div id='info' class="alert alert-success alert-dismissable invisible fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <div id='out'></div>
+        <div id='info' class="alert alert-success alert-dismissable invisible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <div id='out'></div>
+        </div>
+
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend></legend>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <script type="in/Login"></script>
+                    </div>
+                    <div class="col-md-6">
+                        <img id='picture' width='80' height='80' class='pull-right' />
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="firstName" type="text" placeholder="First Name" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="email" type="text" placeholder="Email" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="headline" type="text" placeholder="HeadLine" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+            </fieldset>
+            <input type='submit' class='btn btn-primary btn-block' value="Apply">
+
+        </form>
+
     </div>
-
-    <form class="form-horizontal">
-      <fieldset>
-
-        <!-- Form Name -->
-        <legend></legend>
-
-        <div class="form-group">
-          <div class="col-md-6">
-            <script type="in/Login"></script>
-          </div>
-          <div class="col-md-6">
-            <img id='picture' width='80' height='80' class='pull-right' />
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <div class="col-md-12">
-            <input id="firstName" type="text" placeholder="First Name" class="form-control input-md" required="">
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <div class="col-md-12">
-            <input id="lastName" type="text" placeholder="Last Name" class="form-control input-md" required="">
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <div class="col-md-12">
-            <input id="email" type="text" placeholder="Email" class="form-control input-md" required="">
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <div class="col-md-12">
-            <input id="headline" type="text" placeholder="HeadLine" class="form-control input-md" required="">
-          </div>
-        </div>
-
-      </fieldset>
-      <input type='submit' class='btn btn-primary btn-block' value="Apply">
-
-    </form>
-
-  </div>
 </body>
 
 </html>
