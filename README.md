@@ -34,7 +34,7 @@ Browser
 http://localhost:9999
 ```
 
-Unfilled, click on sign in on LinkedIn
+Unfilled, click on sign in with LinkedIn
 
 ![](doc/unfilled.png)
 
