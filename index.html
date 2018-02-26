@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>LinkedIn AutoFill</title>
     <link rel="icon" href="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +17,14 @@
         api_key: 78uig8j4a1ia9b
         authorize: false
         lang: en_US
+
     </script>
 
     <script>
         var callbackScope, extraData;
 
         function callback(args) {
-            var fields = ['first-name', 'last-name', 'email-address', 'id', 'headline', 'pictureUrl'];
+            var fields = ['first-name', 'last-name', 'email-address', 'id', 'headline', 'pictureUrl', 'positions', 'num-connections'];
             IN.API.Profile("me").fields(fields).result(function(profiles) {
 
                 member = profiles.values[0];
@@ -32,6 +34,13 @@
                 $('#email').val(member.emailAddress);
                 $('#headline').val(member.headline);
                 $('#picture').attr("src", member.pictureUrl);
+
+                var i = 0;
+                for (position of member.positions.values) {
+                    $('#position' + (i++)).val(position.company.name + " - " + position.title);
+                }
+
+                $('#num-connections').val(member.numConnections);
 
                 out = member.firstName + " " + member.lastName + ", Thank you for taking the time to complete an application for employment."
                 out += "<br>A member of our talent acquisition team will contact you directly if you are selected to proceed in the interview process."
@@ -44,6 +53,7 @@
 
         }
         IN.Event.on(IN, 'auth', callback, callbackScope, extraData);
+
     </script>
 
 </head>
@@ -59,20 +69,27 @@
             <div id='out'></div>
         </div>
 
-        <form class="form-horizontal">
-            <fieldset>
 
-                <!-- Form Name -->
-                <legend></legend>
+        <div class="form-group">
+            <div class="col-md-6">
+                <script type="in/Login"></script>
+            </div>
+            <div class="col-md-6">
+                <img id='picture' width='80' height='80' class='pull-right' />
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <script type="in/Login"></script>
-                    </div>
-                    <div class="col-md-6">
-                        <img id='picture' width='80' height='80' class='pull-right' />
-                    </div>
-                </div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Business</a></li>
+            <li><a data-toggle="tab" href="#menu1">Careers</a></li>
+            <li><a data-toggle="tab" href="#menu2">Others</a></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div id="home" class="tab-pane fade in active form-horizontal">
+
+                <br>
 
                 <!-- Text input-->
                 <div class="form-group">
@@ -102,12 +119,47 @@
                     </div>
                 </div>
 
-            </fieldset>
-            <input type='submit' class='btn btn-primary btn-block' value="Apply">
+            </div>
+            <div id="menu1" class="tab-pane fade form-horizontal">
 
-        </form>
+                <br>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="position0" type="text" placeholder="Position 0" class="form-control input-md" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="position1" type="text" placeholder="Position 1" class="form-control input-md" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="position2" type="text" placeholder="Position 2" class="form-control input-md" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="position3" type="text" placeholder="Position 3" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+            </div>
+            <div id="menu2" class="tab-pane fade form-horizontal">
+                <br>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input id="num-connections" type="text" placeholder="Number of Connections 0" class="form-control input-md" required="">
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
+
+
 </body>
 
 </html>

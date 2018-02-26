@@ -25,7 +25,8 @@ cd js-linkedin-auto-fill-form
 Start Server
 
 ```
-http-server -p 9999
+npm install
+PORT=9999 node app.js
 ```
 
 Browser
@@ -47,6 +48,10 @@ Filled
 
 ![](doc/filled.png)
 
+
+Demo
+
+![](doc/demo.webm)
 
 ## References
 

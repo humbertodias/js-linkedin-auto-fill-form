@@ -1,0 +1,25 @@
+{
+  "name": "js-linkedin-auto-fill-form",
+  "version": "1.0.0",
+  "description": "Using LinkedIn JavaScript API for User Authentication and Profile Retrieval.",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humbertodias/js-linkedin-auto-fill-form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humbertodias/js-linkedin-auto-fill-form/issues"
+  },
+  "homepage": "https://github.com/humbertodias/js-linkedin-auto-fill-form#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
