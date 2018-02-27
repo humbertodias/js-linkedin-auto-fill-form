@@ -47,12 +47,6 @@ Authentication
 
 Filled
 
-![](doc/filled.png)
-
-
-
-Demo
-
 ![](doc/demo.gif)
 
 [mp4](doc/demo.mp4)
