@@ -50,7 +50,12 @@ Filled
 ![](doc/filled.png)
 
 
-[Demo](doc/demo.mp4)
+
+Demo
+
+![](doc/demo.gif)
+
+[mp4](doc/demo.mp4)
 
 
 ## References
