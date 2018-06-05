@@ -2,6 +2,8 @@
 
 Using LinkedIn JavaScript API for User Authentication and Profile Retrieval.
 
+[Play](https://humbertodias.github.io/js-linkedin-auto-fill-form/)
+
 
 ## Prerequires
 
@@ -37,19 +39,19 @@ http://localhost:9999
 
 Unfilled, click on sign in with LinkedIn
 
-![](doc/unfilled.png)
+![](img/unfilled.png)
 
 
 Authentication
 
-![](doc/auth.png)
+![](img/auth.png)
 
 
 Filled
 
-![](doc/demo.gif)
+![](img/demo.gif)
 
-[mp4](doc/demo.mp4)
+[mp4](img/demo.mp4)
 
 
 ## References
