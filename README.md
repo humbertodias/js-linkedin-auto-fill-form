@@ -60,5 +60,7 @@ Filled
 
 2. [Using LinkedIn JavaScript API for User Authentication and Profile Retrieval](http://www.developer.com/lang/jscript/using-linkedin-javascript-api-for-user-authentication-and-profile-retrieval.html)
 
+3. [how-to-get-linkedin-api-key](https://support.heateor.com/how-to-get-linkedin-api-key/)
+
 
 
